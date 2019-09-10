@@ -14,8 +14,7 @@ jobs:
 
     - name: Docker login
       uses: actions/docker/login@master
-      with:
-        secrets: ["qautomatron", "$GITHUB_TOKEN"]
+      secrets: ["qautomatron", "$GITHUB_TOKEN"]
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DOCKER_REGISTRY_URL: "docker.pkg.github.com"
