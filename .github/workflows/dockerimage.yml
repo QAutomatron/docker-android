@@ -16,5 +16,5 @@ jobs:
       run: docker login docker.pkg.github.com -u QAutomatron -p ${{ secrets.GH_TOKEN }}
     
     - name: Build image
-      run: docker build -t docker.pkg.github.com/qautomatron/docker-android/api29:0.1 .
+      run: docker build -t docker.pkg.github.com/qautomatron/docker-android/api29 .
       
