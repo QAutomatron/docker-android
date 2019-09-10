@@ -9,7 +9,16 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Docker login
+      uses: actions/docker/login@master
+      with:
+        secrets: ["qautomatron", "$GITHUB_TOKEN"]
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DOCKER_REGISTRY_URL: "docker.pkg.github.com"
     
     - name: Build image
       uses: actions/docker/cli@master
