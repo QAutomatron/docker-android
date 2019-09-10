@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v1
+    
+    - name: Build image
+      uses: actions/docker/cli@master
+      with:
+        args: build -t qautomatron/docker-android .
+      
