@@ -29,7 +29,7 @@ RUN unzip downloaded_sdk.zip -d /opt/android-sdk-linux && \
 
 # Install sdk elements (list from "sdkmanager --list")
 RUN yes | sdkmanager --licenses && \
-    sdkmanager "build-tools;29.0.2" "platform-tools" "tools" "platforms;android-29" "ndk;21.0.6113669" "cmake;3.10.2.4988404" && \
+    sdkmanager "build-tools;29.0.2" "platform-tools" "tools" "platforms;android-29" "ndk;21.0.6113669" "ndk;20.0.5594570" "cmake;3.10.2.4988404" && \
     sdkmanager --update && \
     yes | sdkmanager --licenses && \
     mkdir -p /opt/workspace
