@@ -1,6 +1,6 @@
 FROM adoptopenjdk/openjdk8:x86_64-ubuntu-jdk8u222-b10-slim
 
-LABEL description="Android API 29 for CI"
+LABEL description="Android API 30 for CI"
 LABEL version="0.1"
 LABEL maintainer="QAutomatron"
 
@@ -29,7 +29,7 @@ RUN unzip downloaded_sdk.zip -d /opt/android-sdk-linux && \
 
 # Install sdk elements (list from "sdkmanager --list")
 RUN yes | sdkmanager --licenses && \
-    sdkmanager "build-tools;29.0.2" "platform-tools" "tools" "platforms;android-29" "ndk;21.0.6113669" "ndk;20.0.5594570" "cmake;3.10.2.4988404" && \
+    sdkmanager "build-tools;29.0.2" "platform-tools" "tools" "platforms;android-30" "ndk;21.0.6113669" "ndk;20.0.5594570" "cmake;3.10.2.4988404" && \
     sdkmanager --update && \
     yes | sdkmanager --licenses && \
     mkdir -p /opt/workspace
