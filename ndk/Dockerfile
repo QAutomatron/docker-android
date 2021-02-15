@@ -25,6 +25,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y software-proper
     unzip downloaded_sdk.zip -d /opt/android-sdk-linux && \
     rm -f downloaded_sdk.zip && \
     yes | sdkmanager --sdk_root=$ANDROID_HOME --no_https --licenses && \
-    yes | sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.2" "platform-tools" "tools" "platforms;android-29" && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.2" "platform-tools" "tools" "platforms;android-30" "ndk;21.0.6113669" "ndk;20.0.5594570" "cmake;3.10.2.4988404" && \
     mkdir -p /opt/workspace
 WORKDIR /opt/workspace
