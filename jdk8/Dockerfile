@@ -1,7 +1,7 @@
-FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.11_9-slim
+FROM adoptopenjdk/openjdk8:x86_64-ubuntu-jdk8u292-b10-slim
 
-LABEL description="Android API 30 for CI"
-LABEL version="0.4"
+LABEL description="Android API 31 for CI"
+LABEL version="0.4.1"
 LABEL maintainer="QAutomatron"
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y software-proper
     unzip -q /tmp/android-sdk-linux.zip -d $ANDROID_CMD_ROOT && \
     rm /tmp/android-sdk-linux.zip && \
     yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --no_https --licenses && \
-    yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.3" "platform-tools" "tools" "platforms;android-30" && \
+    yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.3" "platform-tools" "tools" "platforms;android-31" && \
     mkdir -p /opt/workspace && \
 # Clean up
     apt-get -yq autoremove && \
