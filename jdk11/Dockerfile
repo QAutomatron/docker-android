@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.11_9-slim
 
 LABEL description="Android API 30 for CI"
-LABEL version="0.4.1"
+LABEL version="0.4.2"
 LABEL maintainer="QAutomatron"
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -10,8 +10,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=en_US.UTF-8 \
     LINK_ANDROID_SDK=https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip \
     ANDROID_HOME=/opt/android-sdk-linux \
-    ANDROID_CMD_ROOT=/opt/cmdline-tools \
-    PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_CMD_ROOT/bin"
+    ANDROID_CMD_ROOT=/opt/cmdline-tools
+
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${ANDROID_CMD_ROOT}/bin
 
 RUN apt-get update && apt-get install --no-install-recommends -y software-properties-common && \
 # Install Deps and build-essential
@@ -25,7 +26,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y software-proper
     unzip -q /tmp/android-sdk-linux.zip -d $ANDROID_CMD_ROOT && \
     rm /tmp/android-sdk-linux.zip && \
     yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --no_https --licenses && \
-    yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.3" "platform-tools" "tools" "platforms;android-31" && \
+    yes | $ANDROID_CMD_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;30.0.3" "platform-tools" "tools" "platforms;android-30" "ndk;21.0.6113669" "cmake;3.10.2.4988404" && \
     mkdir -p /opt/workspace && \
 # Clean up
     apt-get -yq autoremove && \
