@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.14.1_1-slim
 
 LABEL description="Android API 31 for CI"
-LABEL version="0.4.3"
+LABEL version="0.5"
 LABEL maintainer="QAutomatron"
 
 ENV DEBIAN_FRONTEND=noninteractive \
